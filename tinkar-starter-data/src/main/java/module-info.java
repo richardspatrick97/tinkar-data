@@ -7,4 +7,6 @@ open module tinkar.starter.data {
     requires dev.ikm.tinkar.provider.entity;
     requires dev.ikm.jpms.eclipse.collections.api;
     requires org.slf4j;
+    requires maven.plugin.api;
+    requires maven.plugin.annotations;
 }
