@@ -34,7 +34,6 @@ import java.util.concurrent.ExecutionException;
 
 import static dev.ikm.tinkar.terms.TinkarTerm.*;
 
-
 public class TinkarStarterData {
 
     private static final Logger LOG = LoggerFactory.getLogger(TinkarStarterData.class.getSimpleName());
@@ -50,7 +49,7 @@ public class TinkarStarterData {
 
     private void init() {
         LOG.info("Starting database");
-        LOG.info("Loading data from " + datastore.getAbsolutePath());
+        LOG.info("Loading data from {}", datastore.getAbsolutePath());
         CachingService.clearAll();
         ServiceProperties.set(ServiceKeys.DATA_STORE_ROOT, datastore);
         PrimitiveData.selectControllerByName("Open SpinedArrayStore");
@@ -8145,11 +8144,15 @@ public class TinkarStarterData {
         }
     }
 
-    public static void main(String[] args){
+    public void execute() {
+        init();
+        transform();
+        exportToProtoBuf();
+        cleanup();
+    }
+
+    public static void main(String[] args) {
         TinkarStarterData starterData = new TinkarStarterData(args);
-        starterData.init();
-        starterData.transform();
-        starterData.exportToProtoBuf();
-        starterData.cleanup();
+        starterData.execute();
     }
 }
