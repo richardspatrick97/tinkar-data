@@ -45,6 +45,7 @@ public class TinkarStarterData {
         datastore = new File(args[0]);
         exportFile = new File(args[1]);
         FileUtil.recursiveDelete(datastore);
+        FileUtil.recursiveDelete(exportFile);
     }
 
     private void init() {
