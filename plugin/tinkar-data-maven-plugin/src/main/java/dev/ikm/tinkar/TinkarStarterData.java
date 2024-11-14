@@ -45,7 +45,6 @@ public class TinkarStarterData {
         datastore = new File(args[0]);
         exportFile = new File(args[1]);
         FileUtil.recursiveDelete(datastore);
-        FileUtil.recursiveDelete(exportFile);
     }
 
     private void init() {
@@ -8030,16 +8029,16 @@ public class TinkarStarterData {
                 .attach(new TinkarBaseModel());
 
         session.compose((PatternAssembler patternAssembler) -> patternAssembler.pattern(COMMENT_PATTERN)
-                .meaning(COMMENT)
-                .purpose(COMMENT)
-                .fieldDefinition(
-                        COMMENT,
-                        COMMENT,
-                        STRING))
+                        .meaning(COMMENT)
+                        .purpose(COMMENT)
+                        .fieldDefinition(
+                                COMMENT,
+                                COMMENT,
+                                STRING))
                 .attach((FullyQualifiedName fqn) -> fqn
-                .text(COMMENT_PATTERN.description())
-                .language(ENGLISH_LANGUAGE)
-                .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE))
+                        .text(COMMENT_PATTERN.description())
+                        .language(ENGLISH_LANGUAGE)
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE))
                 .attach((Synonym synonym) -> synonym
                         .text("Comment Pattern")
                         .language(ENGLISH_LANGUAGE)
@@ -8074,7 +8073,7 @@ public class TinkarStarterData {
                         .fieldDefinition(
                                 MINIMUM_VALUE_OPERATOR,
                                 CONCRETE_DOMAIN_OPERATOR,
-                                    CONCEPT_FIELD)
+                                CONCEPT_FIELD)
                         .fieldDefinition(
                                 REFERENCE_RANGE_MINIMUM,
                                 REFERENCE_RANGE,
@@ -8132,7 +8131,7 @@ public class TinkarStarterData {
                 .reference(concept)
                 .fieldValues(objects -> objects.addAll(Lists.mutable.of(originPath, DateTimeUtil.epochMsToInstant(Long.MAX_VALUE)))));
     }
-    
+
     private USDialect usDialect() {
         return new USDialect().acceptability(PREFERRED);
     }
