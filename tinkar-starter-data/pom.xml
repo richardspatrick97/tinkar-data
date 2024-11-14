@@ -12,97 +12,48 @@
     </parent>
 
     <artifactId>tinkar-starter-data</artifactId>
-    <packaging>maven-plugin</packaging>
+    <packaging>pom</packaging>
+    <name>tinkar-starter-data</name>
 
-    <name>TinkarStarterData</name>
-
-    <description>Create TinkarStarterData</description>
-
-    <organization>
-        <name>IKM</name>
-        <url>https://www.ikm.dev</url>
-    </organization>
-
-    <licenses>
-        <license>
-            <name>APACHE LICENSE, VERSION 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
-        </license>
-    </licenses>
-
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
-
-    <dependencies>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>entity</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>composer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.jpms</groupId>
-            <artifactId>eclipse-collections-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>data-spinedarray-provider</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>executor-provider</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>dev.ikm.tinkar</groupId>
-            <artifactId>entity-provider</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugin-tools</groupId>
-            <artifactId>maven-plugin-annotations</artifactId>
-        </dependency>
-    </dependencies>
+    <url>http://maven.apache.org</url>
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-plugin-plugin</artifactId>
-                <version>${maven-plugin-plugin.version}</version>
-                <configuration>
-                    <goalPrefix>plugin</goalPrefix>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>${project.artifactId}</artifactId>
-                <version>${project.version}</version>
+                <groupId>dev.ikm.tinkar</groupId>
+                <artifactId>tinkar-data-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <id>load-data</id>
                         <goals>
-                            <goal>load-data</goal>
+                            <goal>generate-data</goal>
                         </goals>
                         <configuration>
-                            <dataStore>${user.home}/Solor/tinkar-starter-data</dataStore>
-                            <exportFile>${basedir}/target/tinkar-export-starter-data-pb.zip</exportFile>
+                            <dataStore>${project.build.directory}/tinkar-starter-data</dataStore>
+                            <exportFile>${project.build.directory}/tinkar-export-starter-data-pb.zip</exportFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/tinkar-export-starter-data-pb.zip</file>
+                                    <type>zip</type>
+                                    <classifier>tinkar-export-pb</classifier>
+                                </artifact>
+                            </artifacts>
                         </configuration>
                     </execution>
                 </executions>
