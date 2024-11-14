@@ -15,22 +15,7 @@
     <packaging>maven-plugin</packaging>
     <name>tinkar-data-maven-plugin</name>
 
-    <description>Create TinkarStarterData</description>
-
-    <organization>
-        <name>IKM</name>
-        <url>https://www.ikm.dev</url>
-    </organization>
-
-    <licenses>
-        <license>
-            <name>APACHE LICENSE, VERSION 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
-        </license>
-    </licenses>
-
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>http://maven.apache.org</url>
 
     <build>
         <plugins>
