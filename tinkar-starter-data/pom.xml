@@ -15,20 +15,6 @@
     <packaging>pom</packaging>
     <name>tinkar-starter-data</name>
 
-    <developers>
-		<!-- OSSRH Related Developer (Start) -->
-		<developer>
-			<id>ikmdev</id>
-			<name>IKM Development Team</name>
-			<email>support@ikm.dev</email>
-		</developer>
-		<!-- OSSRH Related Developer (End) -->
-	</developers>
-
-    <scm>
-		<url>http://www.github.com/ikmdev/tinkar-data</url>
-	</scm>
-
     <url>http://maven.apache.org</url>
     <build>
         <plugins>
