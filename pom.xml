@@ -52,7 +52,9 @@
         <maven-plugin-api.version>3.9.7</maven-plugin-api.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-deploy-plugin.version>3.1.0</maven-deploy-plugin.version>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
     </properties>
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -126,10 +128,15 @@
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
 				</plugin>
+                <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
             </plugins>
         </pluginManagement>
     </build>
-    
+
     <profiles>
 		<profile>
 			<id>emptySourceJavadocOSSRH</id>
