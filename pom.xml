@@ -7,7 +7,6 @@
         <groupId>dev.ikm.tinkar</groupId>
         <artifactId>tinkar-data-bom</artifactId>
         <version>1.3.0-SNAPSHOT</version>
-        <relativePath/>
     </parent>
 
     <artifactId>tinkar-data</artifactId>
