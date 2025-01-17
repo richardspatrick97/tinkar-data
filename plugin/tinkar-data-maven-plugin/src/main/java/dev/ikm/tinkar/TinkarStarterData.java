@@ -24,6 +24,7 @@ import dev.ikm.tinkar.entity.EntityService;
 import dev.ikm.tinkar.entity.export.ExportEntitiesController;
 import dev.ikm.tinkar.terms.EntityProxy;
 import dev.ikm.tinkar.terms.State;
+import dev.ikm.tinkar.terms.TinkarTerm;
 import org.eclipse.collections.api.factory.Lists;
 import org.eclipse.collections.api.list.MutableList;
 import org.slf4j.Logger;
@@ -6445,6 +6446,31 @@ public class TinkarStarterData {
                 .attach(new StatedAxiom()
                         .isA(DYNAMIC_COLUMN_DATA_TYPES)).attach(new TinkarBaseModel());
 
+        session.compose((ConceptAssembler conceptAssembler) -> conceptAssembler.concept(TinkarTerm.DECIMAL))
+                .attach((FullyQualifiedName fqn) -> fqn
+                        .text("Decimal (SOLOR)")
+                        .language(ENGLISH_LANGUAGE)
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .attach(usDialect()))
+                .attach((Synonym synonym) -> synonym
+                        .text("Decimal")
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .language(ENGLISH_LANGUAGE)
+                        .attach(usDialect()))
+                .attach((Definition definition) -> definition
+                        .text("Data type")
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .language(ENGLISH_LANGUAGE)
+                        .attach(usDialect()))
+                .attach((Identifier identifier) -> identifier
+                        .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
+                        .identifier(DECIMAL.asUuidArray()[0].toString()))
+                .attach(new StatedNavigation()
+                        .parents(DYNAMIC_COLUMN_DATA_TYPES))
+                .attach(new StatedAxiom()
+                        .isA(DYNAMIC_COLUMN_DATA_TYPES)).attach(new TinkarBaseModel());
+
+
         session.compose((ConceptAssembler conceptAssembler) -> conceptAssembler.concept(LOGIC_GRAPH_FOR_SEMANTIC))
                 .attach((FullyQualifiedName fqn) -> fqn
                         .text("Logic graph for semantic (SOLOR)")
@@ -6811,7 +6837,7 @@ public class TinkarStarterData {
                         .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
                         .identifier(DYNAMIC_COLUMN_DATA_TYPES.asUuidArray()[0].toString()))
                 .attach(new StatedNavigation()
-                        .children(ARRAY, BOOLEAN, BYTE_ARRAY, DOUBLE, FLOAT, LONG, SIGNED_INTEGER, STRING, UUID_DATA_TYPE)
+                        .children(ARRAY, BOOLEAN, BYTE_ARRAY, DOUBLE, FLOAT, LONG, SIGNED_INTEGER, STRING, UUID_DATA_TYPE, DECIMAL)
                         .parents(MEANING))
                 .attach(new StatedAxiom()
                         .isA(MEANING)).attach(new TinkarBaseModel());
