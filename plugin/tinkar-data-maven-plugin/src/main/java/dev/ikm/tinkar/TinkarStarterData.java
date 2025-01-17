@@ -2190,7 +2190,7 @@ public class TinkarStarterData {
                         .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
                         .identifier(DISPLAY_FIELDS.asUuidArray()[0].toString()))
                 .attach(new StatedNavigation()
-                        .children(COMPONENT_FIELD, COMPONENT_ID_LIST_FIELD, COMPONENT_ID_SET_FIELD, CONCEPT_FIELD, DIGRAPH_FIELD, DITREE_FIELD, FLOAT_FIELD, INTEGER_FIELD, SEMANTIC_FIELD_TYPE, STRING)
+                        .children(COMPONENT_FIELD, COMPONENT_ID_LIST_FIELD, COMPONENT_ID_SET_FIELD, CONCEPT_FIELD, DIGRAPH_FIELD, DITREE_FIELD, FLOAT_FIELD, INTEGER_FIELD, SEMANTIC_FIELD_TYPE, STRING, DECIMAL_FIELD)
                         .parents(TINKAR_MODEL_CONCEPT))
                 .attach(new StatedAxiom()
                         .isA(TINKAR_MODEL_CONCEPT)).attach(new TinkarBaseModel());
@@ -2561,6 +2561,31 @@ public class TinkarStarterData {
                         .parents(DESCRIPTION_TYPE))
                 .attach(new StatedAxiom()
                         .isA(DESCRIPTION_TYPE)).attach(new TinkarBaseModel());
+
+        session.compose((ConceptAssembler conceptAssembler) -> conceptAssembler.concept(DECIMAL_FIELD))
+                .attach((FullyQualifiedName fqn) -> fqn
+                        .text("Decimal field")
+                        .language(ENGLISH_LANGUAGE)
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .attach(usDialect()))
+                .attach((Synonym synonym) -> synonym
+                        .text("Decimal field")
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .language(ENGLISH_LANGUAGE)
+                        .attach(usDialect()))
+                .attach((Definition definition) -> definition
+                        .text("Represents decimal values.")
+                        .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
+                        .language(ENGLISH_LANGUAGE)
+                        .attach(usDialect()))
+                .attach((Identifier identifier) -> identifier
+                        .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
+                        .identifier(DECIMAL_FIELD.asUuidArray()[0].toString()))
+                .attach(new StatedNavigation()
+                        .parents(DISPLAY_FIELDS))
+                .attach(new StatedAxiom()
+                        .isA(DISPLAY_FIELDS)).attach(new TinkarBaseModel());
+
 
         session.compose((ConceptAssembler conceptAssembler) -> conceptAssembler.concept(FLOAT_FIELD))
                 .attach((FullyQualifiedName fqn) -> fqn
