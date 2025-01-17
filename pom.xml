@@ -17,6 +17,7 @@
     <modules>
         <module>tinkar-starter-data</module>
         <module>plugin</module>
+        <module>tinkar-example-data</module>
     </modules>
 
     <url>http://www.ikm.dev</url>
