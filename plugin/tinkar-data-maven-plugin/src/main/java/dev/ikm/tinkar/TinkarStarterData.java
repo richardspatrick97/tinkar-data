@@ -6837,7 +6837,7 @@ public class TinkarStarterData {
                         .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
                         .identifier(DYNAMIC_COLUMN_DATA_TYPES.asUuidArray()[0].toString()))
                 .attach(new StatedNavigation()
-                        .children(ARRAY, BOOLEAN, BYTE_ARRAY, DOUBLE, FLOAT, LONG, SIGNED_INTEGER, STRING, UUID_DATA_TYPE)
+                        .children(ARRAY, BOOLEAN, BYTE_ARRAY, DOUBLE, FLOAT, LONG, SIGNED_INTEGER, STRING, UUID_DATA_TYPE, DECIMAL)
                         .parents(MEANING))
                 .attach(new StatedAxiom()
                         .isA(MEANING)).attach(new TinkarBaseModel());
