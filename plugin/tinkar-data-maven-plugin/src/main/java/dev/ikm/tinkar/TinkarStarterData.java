@@ -6464,7 +6464,7 @@ public class TinkarStarterData {
                         .attach(usDialect()))
                 .attach((Identifier identifier) -> identifier
                         .source(UNIVERSALLY_UNIQUE_IDENTIFIER)
-                        .identifier(FLOAT.asUuidArray()[0].toString()))
+                        .identifier(DECIMAL.asUuidArray()[0].toString()))
                 .attach(new StatedNavigation()
                         .parents(DYNAMIC_COLUMN_DATA_TYPES))
                 .attach(new StatedAxiom()
