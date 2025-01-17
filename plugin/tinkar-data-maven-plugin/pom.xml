@@ -18,15 +18,17 @@
     <url>http://maven.apache.org</url>
 
     <build>
+<!--
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <!--<version>${maven-plugin-plugin.version}</version>-->
-                <!--configuration>
+                &lt;!&ndash;<version>${maven-plugin-plugin.version}</version>&ndash;&gt;
+                &lt;!&ndash;configuration>
                     <goalPrefix>plugin</goalPrefix>
-                </configuration-->
+                </configuration&ndash;&gt;
             </plugin>
         </plugins>
+-->
     </build>
 </project>
