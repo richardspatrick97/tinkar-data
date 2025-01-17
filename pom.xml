@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>tinkar-data</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
+    <version>1.4.0</version>
     <name>Tinkar Data</name>
     <description>Tinkar Data Project</description>
     <packaging>pom</packaging>
