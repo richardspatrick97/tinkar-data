@@ -2574,7 +2574,7 @@ public class TinkarStarterData {
                         .language(ENGLISH_LANGUAGE)
                         .attach(usDialect()))
                 .attach((Definition definition) -> definition
-                        .text("Represents decimal values.")
+                        .text("Represents values as high-precision decimal values.")
                         .caseSignificance(DESCRIPTION_NOT_CASE_SENSITIVE)
                         .language(ENGLISH_LANGUAGE)
                         .attach(usDialect()))
