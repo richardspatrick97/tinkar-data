@@ -1,11 +1,15 @@
 package dev.ikm.tinkar;
 
 import dev.ikm.tinkar.common.service.CachingService;
+import dev.ikm.tinkar.common.service.DefaultDescriptionForNidService;
+import dev.ikm.tinkar.common.service.PluggableService;
 import dev.ikm.tinkar.common.service.PrimitiveData;
+import dev.ikm.tinkar.common.service.PublicIdService;
 import dev.ikm.tinkar.common.service.ServiceKeys;
 import dev.ikm.tinkar.common.service.ServiceProperties;
 import dev.ikm.tinkar.common.util.io.FileUtil;
 import dev.ikm.tinkar.common.util.time.DateTimeUtil;
+import dev.ikm.tinkar.component.ChronologyService;
 import dev.ikm.tinkar.composer.Composer;
 import dev.ikm.tinkar.composer.Session;
 import dev.ikm.tinkar.composer.assembler.ConceptAssembler;
@@ -31,13 +35,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.util.ServiceLoader;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static dev.ikm.tinkar.terms.TinkarTerm.*;
 
-public class TinkarStarterData {
+public class TinkarStarterData{
 
     private static final Logger LOG = LoggerFactory.getLogger(TinkarStarterData.class.getSimpleName());
+    private static final AtomicReference<TinkarStarterData> providerReference = new AtomicReference<>();
+
 
     private final File exportFile;
     private final File datastore;

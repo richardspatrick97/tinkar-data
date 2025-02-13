@@ -16,8 +16,8 @@
     <name>tinkar-starter-data</name>
 
     <url>http://maven.apache.org</url>
+
     <build>
-        <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>dev.ikm.tinkar</groupId>
@@ -60,6 +60,5 @@
                 </executions>
             </plugin>
         </plugins>
-        </pluginManagement>
     </build>
 </project>

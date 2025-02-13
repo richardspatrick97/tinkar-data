@@ -1,3 +1,4 @@
+
 open module tinkar.starter.data {
     requires dev.ikm.tinkar.common;
     requires dev.ikm.tinkar.composer;
@@ -9,4 +10,6 @@ open module tinkar.starter.data {
     requires org.slf4j;
     requires maven.plugin.api;
     requires maven.plugin.annotations;
+
+    uses dev.ikm.tinkar.entity.EntityService;
 }
