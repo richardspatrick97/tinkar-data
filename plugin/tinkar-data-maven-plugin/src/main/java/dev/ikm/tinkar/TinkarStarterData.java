@@ -1,6 +1,7 @@
 package dev.ikm.tinkar;
 
 import dev.ikm.tinkar.common.service.CachingService;
+import dev.ikm.tinkar.common.service.DataServiceController;
 import dev.ikm.tinkar.common.service.DefaultDescriptionForNidService;
 import dev.ikm.tinkar.common.service.PluggableService;
 import dev.ikm.tinkar.common.service.PrimitiveData;
@@ -60,8 +61,10 @@ public class TinkarStarterData{
         LOG.info("Starting database");
         LOG.info("Loading data from {}", datastore.getAbsolutePath());
         CachingService.clearAll();
+        ServiceLoader<DataServiceController> loader = PluggableService.load(DataServiceController.class);
+        PrimitiveData.selectControllerByName(loader.findFirst().get().controllerName());
         ServiceProperties.set(ServiceKeys.DATA_STORE_ROOT, datastore);
-        PrimitiveData.selectControllerByName("Open SpinedArrayStore");
+        //PrimitiveData.selectControllerByName("Open SpinedArrayStore");
         PrimitiveData.start();
     }
 
