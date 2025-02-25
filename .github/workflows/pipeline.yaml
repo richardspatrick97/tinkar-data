@@ -9,7 +9,7 @@ on:
         inputs:
             property:
                 type: string
-                description: "Enter Tinkar Starter Data Properties Version"
+                description: "Enter Tinkar Starter Data Properties Version (View Versions Here: https://central.sonatype.com/artifact/dev.ikm.tinkar/tinkar-core/versions)"
                 required: true
                 
 
