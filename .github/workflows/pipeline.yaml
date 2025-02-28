@@ -1,0 +1,25 @@
+name: Property Data Pipeline
+
+run-name: Run Tinkar Starter Data Pipeline With Property Version -- ${{inputs.property}}
+
+description: https://central.sonatype.com/artifact/dev.ikm.tinkar/tinkar-core/versions
+
+on:
+    workflow_dispatch:
+        inputs:
+            property:
+                type: string
+                description: "Enter Tinkar Starter Data Properties Version (View Versions Here: https://central.sonatype.com/artifact/dev.ikm.tinkar/tinkar-core/versions)"
+                required: true
+                
+
+jobs:
+    build-property:
+        name: Build Property
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Checkout Code 
+              uses: actions/checkout@v4
+
+            - name: Build With Property
+              run: mvn clean deploy -Dtinkar-starter-data-properties.version=${{inputs.property}}
